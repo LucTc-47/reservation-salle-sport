@@ -1,0 +1,406 @@
+/* ================================================================== */
+/*                            style.css                               */
+/* ================================================================== */
+
+/* ================================================================== */
+/* Général                                                            */
+/* ================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================================================== */
+/* En-tête                                                           */
+/* ================================================================== */
+header {
+  background: 
+    linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0,0,0,0.3)),
+    url('https://source.unsplash.com/1600x600/?gym') center/cover no-repeat;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+}
+
+header a {
+  color: #ecf0f1;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================================================================== */
+/* Contenu principal                                                  */
+/* ================================================================== */
+main {
+  padding: 40px;
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding-bottom: 100px; /* pour ne pas cacher sous le footer */
+}
+
+.salles-grid,
+.salle-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.salle-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.salle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.salle-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.salle-image-container img,
+.salle-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.salle-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.salle-card h3 {
+  margin: 15px;
+  color: #28a745;
+}
+
+.salle-card p {
+  margin: 0 15px 15px;
+}
+
+/* ================================================================== */
+/* Formulaires & Auth                                                 */
+/* ================================================================== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.auth-form label {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.auth-form input:focus,
+.auth-form select:focus,
+.auth-form textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* ================================================================== */
+/* Messages d'alerte                                                  */
+/* ================================================================== */
+.message,
+.alert {
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.error-message,
+.alert-error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.success-message,
+.alert-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.alert-warning {
+  background-color: #fff8e1;
+  color: #f57f17;
+  border: 1px solid #ffd54f;
+}
+
+/* ================================================================== */
+/* Liens secondaires                                                  */
+/* ================================================================== */
+.auth-links {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-links a {
+  color: #7f8c8d;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.text-right {
+  text-align: right;
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+/* ================================================================== */
+/* Boutons unifiés style gym                                           */
+/* ================================================================== */
+.btn,
+.auth-form button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: auto;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn:hover,
+.auth-form button:hover {
+  background-color: #218838;
+}
+
+/* Variante primaire si besoin */
+.btn-primary {
+  /* étendre ou modifier ici si nécessaire */
+}
+
+/* ================================================================== */
+/* Footer                                                            */
+/* ================================================================== */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to right, #000000, #2ecc71);
+  color: #ecf0f1;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+
+footer a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #d4efdf;
+}
+
+/* ================================================================== */
+/* Responsive                                                        */
+/* ================================================================== */
+@media (max-width: 768px) {
+  main {
+    margin: 20px 15px;
+    padding: 25px;
+  }
+
+  .auth-form input,
+  .auth-form button,
+  .btn {
+    padding: 12px;
+  }
+
+  .salle-card {
+    padding: 15px;
+  }
+
+  .salle-list,
+  .salles-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 10px;
+  }
+
+  .salle-badge {
+    font-size: 0.7em;
+    padding: 4px 8px;
+  }
+
+  .auth-form input,
+  .auth-form button,
+  .btn {
+    padding: 10px;
+  }
+}
+
+/* Header FitReserve */
+header {
+  background:
+    linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)),
+    url('https://source.unsplash.com/1600x600/?gym') center/cover no-repeat;
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+header h1 span:first-child {
+  color: #000;
+  background: rgba(255,255,255,0.8);
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  animation: fadeIn 1s ease-in-out;
+}
+
+header h1 span:last-child {
+  color: #28a745;
+  display: inline-block;
+  animation: fadeIn 1s ease-in-out;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+header nav {
+  margin-top: 15px;
+}
+
+header nav a {
+  color: #ecf0f1;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #d4efdf;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Bouton Supprimer en rouge */
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+}
